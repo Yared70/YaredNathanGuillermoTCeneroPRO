@@ -17,10 +17,9 @@ public class Jugar {
         Partida p1 = new Partida(j1, 3);
         
         System.out.println(p1.getPalabraAdivinar());
-        System.out.println(p1.getFecha());
         
         Partida p2 = new Partida(j1,2);
-        System.out.println(p2.getFecha());
+
     }
     
 }

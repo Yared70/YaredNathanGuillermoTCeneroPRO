@@ -6,6 +6,8 @@ package jugar;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -19,7 +21,6 @@ public class Partida {
     private Integer puntosTotales;
     private Integer fallos;
     private Integer dificultad;
-    private final Date fecha;
     private ArrayList<String> historialLetras;
     private String palabraAdivinar;
     
@@ -41,7 +42,6 @@ public class Partida {
         puntosTotales = 0;
         fallos = 0;
         historialLetras = new ArrayList<>();
-        fecha = new Date();
     }
     
     public Partida(Jugador p1, Integer dificultad){
@@ -52,7 +52,6 @@ public class Partida {
         this.dificultad = dificultad;
         puntosTotales = 0;
         fallos = 0;
-        fecha = new Date();
         historialLetras = new ArrayList<>();
         if(dificultad == 1){
             int aleatorio = rnd.nextInt(palDif1.length);
@@ -106,10 +105,6 @@ public class Partida {
 
     public String getPalabraAdivinar() {
         return palabraAdivinar;
-    }
-
-    public Date getFecha() {
-        return fecha;
     }
 
     
