@@ -37,11 +37,6 @@ class Menu {
             System.out.println("Selecciona tu dificultad");
             Integer dificultad=sc.nextInt();
             Partida p1=new Partida(jugador1,dificultad);
-            //Esto no si hará falta para guardar la fecha de la partida o se hace sola
-            System.out.println("Introduce la fecha con la siguiente nomenglatura aaaa/mm/dd");
-            int anyo=sc.nextInt();sc.nextLine();
-            int mes=sc.nextInt();sc.nextLine();
-            int dia=sc.nextInt();sc.nextLine();
             /*
             //Esto es para realizar las adivinanzas de las letras que conforman la palabra
             do{
