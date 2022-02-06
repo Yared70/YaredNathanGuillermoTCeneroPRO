@@ -9,19 +9,23 @@ package jugar;
  * @author yared
  */
 public class Vista {
- 
-    public static void main(String[] args) {
-       
 
-        String ahorcado[][] = new String[15][20];
+    String ahorcado[][];
+    
+    public Vista() {
+        
+        ahorcado = new String[15][20];
         for (int i = 0; i < ahorcado.length; i++) {
             for (int j = 0; j < ahorcado[0].length; j++) {
                 ahorcado[i][j] = " ";
             }
         }
+    }
+ 
+    
+    public void fallos0(){
         
-        
-        //base
+         //base
         
         ahorcado[14][0] = "|";
         ahorcado[14][1] = "_";
@@ -86,6 +90,11 @@ public class Vista {
         ahorcado[1][12] = "|";
         ahorcado[2][11] = "|";
         
+        
+    }
+    
+    public void fallos1(){
+        
         //cabeza
         
         ahorcado[2][10] = "_";
@@ -99,6 +108,10 @@ public class Vista {
         ahorcado[5][10] = "_";
         ahorcado[5][12] = "_";
         
+    }
+    
+    public void fallos2(){
+        
         //tronco
         
         ahorcado[6][11] = "|";
@@ -106,39 +119,59 @@ public class Vista {
         ahorcado[8][11] = "|";
         ahorcado[9][11] = "|";
         
-        //brazo izquierdo
+    }
+    
+    public void fallos3(){
+        
+         //brazo izquierdo
         ahorcado[6][10] = "/";
         ahorcado[7][9] = "/";
         
-        //brazo derecho
+        
+    }
+    
+    public void fallos4(){
+        
+         //brazo derecho
         ahorcado[6][12] = "\\";
         ahorcado[7][13] = "\\";
         
+    }
+    
+    public void fallos5(){
+        
+         
         //pierna izquierda
         ahorcado[10][10] = "/";
         ahorcado[11][9] = "/";
         
+    }
+    
+    public void fallos6(){
+        
+         
         //pierda derecha
         ahorcado[10][12] = "\\";
         ahorcado[11][13] = "\\";
+        ahorcado[8][16] = "Has perdido!";
         
-
-        for (int i = 0; i < ahorcado.length; i++) {
+    }
+    
+    public void mostrar(){
+        
+        System.out.println("\n\n\n\n\n\n\n\n");
+         for (int i = 0; i < ahorcado.length; i++) {
             for (int j = 0; j < ahorcado[0].length; j++) {
                 System.out.print(ahorcado[i][j]);
             
             }
             System.out.println("");
         }
-        
-        System.out.println("\n\t\t_ _ _ _\n");
-        System.out.print("Errores: ");
-        System.out.print("\tLetras dichas:");
-        System.out.println("");
-        
-        
+         System.out.println("\n\n");
         
     }
     
     
-}
+    
+}  
+    
