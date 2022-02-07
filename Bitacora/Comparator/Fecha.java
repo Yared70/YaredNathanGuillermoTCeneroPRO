@@ -18,15 +18,17 @@ import javax.swing.text.DateFormatter;
  * @author alumno
  */
 public class Fecha {
+    
+}
 
     /**
      * @param args the command line arguments
      */
-    class ComparatorProjecto implements Comparable<ComparatorProjecto>{
-  public long fechaProjecto;
+    class ComparatorProyecto implements Comparable<ComparatorProyecto>{
+  public long fechaProyecto;
   public String nombre;
- ComparatorProjecto(String nombre,long fechaProjecto){
-  this.fechaProjecto = fechaProjecto;
+ ComparatorProyecto(String nombre,long fechaProyecto){
+  this.fechaProyecto = fechaProyecto;
   this.nombre = nombre;
  }
 
@@ -34,25 +36,25 @@ public class Fecha {
             return nombre;
         }
 
-        public long getFechaProjecto() {
-            return fechaProjecto;
+        public long getFechaProyecto() {
+            return fechaProyecto;
         }
 
-        public void setFechaProjecto(long fechaProjecto) {
-            this.fechaProjecto = fechaProjecto;
+        public void setFechaProyecto(long fechaProyecto) {
+            this.fechaProyecto = fechaProyecto;
         }
 @Override
  public String toString(){
 
-    Date currentDate = new Date(fechaProjecto);
+    Date currentDate = new Date(fechaProyecto);
     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss ");
     return "Proyecto: "+nombre + "   Creado: " + sdf.format(currentDate);
  }
     
 
  @Override
- public int compareTo(ComparatorProjecto p) {
- return Long.compare(this.fechaProjecto, p.fechaProjecto);
+ public int compareTo(ComparatorProyecto p) {
+ return Long.compare(this.fechaProyecto, p.fechaProyecto);
  }
     }
     
@@ -106,18 +108,20 @@ public class Fecha {
         return "Fecha: " + fecha+ "\nCabecera: "+cabecera + "\nCuerpo: "+cuerpo;
         
     }
-}
+
      
      
      
      
-  
+
     
 }
-/*class Main{
-    // public static void main(String[] args) {
-      //Proyecto a = new Proyecto("A","el primer proyecto");
+  class Main{
+    public static void main(String[] args) throws ParseException {
+      Proyecto a = new Proyecto("A","El primer proyecto");
+      Proyecto b = new Proyecto("B","El segundo proyecto");
        
     }
 }
- */
+
+ 
