@@ -190,7 +190,7 @@ public class Vista {
 
     public void mostrar() {
 
-        System.out.println("\n\n\n\n\n\n\n\n");
+        System.out.println("\n\n\n");
         for (int i = 0; i < ahorcado.length; i++) {
             for (int j = 0; j < ahorcado[0].length; j++) {
                 System.out.print(ahorcado[i][j]);
@@ -198,8 +198,18 @@ public class Vista {
             }
             System.out.println("");
         }
-        System.out.println("\n\n");
+        System.out.println("\n");
 
+    }
+    
+    public void reiniciar(){
+        
+        for (int i = 0; i < ahorcado.length; i++) {
+            for (int j = 0; j < ahorcado[0].length; j++) {
+                ahorcado[i][j] = " ";
+            }
+        }
+        
     }
 
 }
