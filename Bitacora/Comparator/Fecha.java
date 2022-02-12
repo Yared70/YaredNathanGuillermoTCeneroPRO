@@ -12,116 +12,111 @@ import javax.swing.text.DateFormatter;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
- * @author alumno
+ * @author nathan
  */
 public class Fecha {
-    
+
 }
 
-    /**
-     * @param args the command line arguments
-     */
-    class ComparatorProyecto implements Comparable<ComparatorProyecto>{
-  public long fechaProyecto;
-  public String nombre;
- ComparatorProyecto(String nombre,long fechaProyecto){
-  this.fechaProyecto = fechaProyecto;
-  this.nombre = nombre;
- }
+/**
+ * @param args the command line arguments
+ */
+class ComparatorProyecto implements Comparable<ComparatorProyecto> {
 
-        public String getNombre() {
-            return nombre;
-        }
+    public long fechaProyecto;
+    public String nombre;
 
-        public long getFechaProyecto() {
-            return fechaProyecto;
-        }
-
-        public void setFechaProyecto(long fechaProyecto) {
-            this.fechaProyecto = fechaProyecto;
-        }
-@Override
- public String toString(){
-
-    Date currentDate = new Date(fechaProyecto);
-    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss ");
-    return "Proyecto: "+nombre + "   Creado: " + sdf.format(currentDate);
- }
-    
-
- @Override
- public int compareTo(ComparatorProyecto p) {
- return Long.compare(this.fechaProyecto, p.fechaProyecto);
- }
+    ComparatorProyecto(String nombre, long fechaProyecto) {
+        this.fechaProyecto = fechaProyecto;
+        this.nombre = nombre;
     }
-    
-     class Proyecto {
-    
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public long getFechaProyecto() {
+        return fechaProyecto;
+    }
+
+    public void setFechaProyecto(long fechaProyecto) {
+        this.fechaProyecto = fechaProyecto;
+    }
+
+    @Override
+    public String toString() {
+
+        Date currentDate = new Date(fechaProyecto);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss ");
+        return "Proyecto: " + nombre + "   Creado: " + sdf.format(currentDate);
+    }
+
+    @Override
+    public int compareTo(ComparatorProyecto p) {
+        return Long.compare(this.fechaProyecto, p.fechaProyecto);
+    }
+}
+
+class Proyecto {
+
     TreeMap<String, Anotacion> asunto;
     String nombre;
     String descripcion;
     long fechaProjecto;
-    
-    
-    public Proyecto(String nombre, String descripcion) throws ParseException{
-        
+
+    public Proyecto(String nombre, String descripcion) throws ParseException {
+
         asunto = new TreeMap<String, Anotacion>();
         this.nombre = nombre;
         this.descripcion = descripcion;
         Date date = new Date();
         this.fechaProjecto = date.getTime();
-        
+
     }
-    
-    public void addAnotaciones(String nombre, Anotacion anotacion){
-        
+
+    public void addAnotaciones(String nombre, Anotacion anotacion) {
+
         this.asunto.put(nombre, anotacion);
-        
+
     }
-    
+
     @Override
-    public String toString(){
-        
+    public String toString() {
+
         return "" + asunto;
     }
-    
+
 }
-     class Anotacion{
-    
+
+class Anotacion {
+
     String cabecera;
     String cuerpo;
     Date fecha;
-    
-    public Anotacion(String cabecera, String cuerpo){
-    
+
+    public Anotacion(String cabecera, String cuerpo) {
+
         this.cabecera = cabecera;
         this.cuerpo = cuerpo;
         fecha = new Date();
     }
-    
+
     @Override
-    public String toString(){
-        
-        return "Fecha: " + fecha+ "\nCabecera: "+cabecera + "\nCuerpo: "+cuerpo;
-        
+    public String toString() {
+
+        return "Fecha: " + fecha + "\tCabecera: " + cabecera + "\nCuerpo: " + cuerpo;
+
     }
 
-     
-     
-     
-     
-
-    
 }
-  class Main{
+
+class Main {
+
     public static void main(String[] args) throws ParseException {
-      Proyecto a = new Proyecto("A","El primer proyecto");
-      Proyecto b = new Proyecto("B","El segundo proyecto");
-       
+        Proyecto a = new Proyecto("A", "El primer proyecto");
+        Proyecto b = new Proyecto("B", "El segundo proyecto");
+
     }
 }
-
- 
