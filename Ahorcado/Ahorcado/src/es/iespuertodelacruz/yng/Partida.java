@@ -22,7 +22,7 @@ public class Partida {
     private ArrayList<String> historialLetras;
     private String palabraAdivinar;
 
-    String palDif1[] = {"angel", "ojo", "pizza", "enojado", "artificiales",
+    String palDif1[] = {"angel", "ojo", "pizza", "enojado", "helado",
         "calabaza", "flor", "arco", "barba"};
     String palDif2[] = {"cerebro", "hebilla", "langosta", "iman", "megafono",
         "saxofonista", "aspersor", "computadora", "libertad"

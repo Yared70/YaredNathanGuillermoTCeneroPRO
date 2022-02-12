@@ -58,8 +58,8 @@ class Menu {
 
                     while (p.getFallos() < 6 && !ganar) {
                         limpiar();
-                        if (!p.getPalabraAdivinar().equals(p.palabraGuiones())) {
-
+                        
+                        if (!p.getPalabraAdivinar().equals(p.palabraGuiones())) {  
                             if (p.getFallos() == 0) {
                                 v.fallos0();
                                 v.mostrar();
@@ -154,10 +154,9 @@ class Menu {
                         System.out.println(v.Perder());
                         System.out.println("\nLa palabra era: " + p.getPalabraAdivinar());
                         System.out.println("\n");
-                        modo = 5;
-                        break;
+                        
                     }
-                    break;
+                break;
 
                 case 2:
                     v.reiniciar();
@@ -278,9 +277,9 @@ class Menu {
                         System.out.println(v.Perder());
                         System.out.println("\nLa palabra era: " + p.getPalabraAdivinar());
                         System.out.println("\n");
-                        modo = 5;
 
-                        break;
+
+                        
                     }
                     break;
 
