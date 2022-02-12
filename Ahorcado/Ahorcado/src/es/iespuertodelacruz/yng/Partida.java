@@ -81,6 +81,12 @@ public class Partida {
 
     }
 
+    public Integer getPuntosTotales() {
+        return puntosTotales;
+    }
+    
+    
+
     public void elegirPalabra(String palabra) {
 
         palabraAdivinar = palabra;
