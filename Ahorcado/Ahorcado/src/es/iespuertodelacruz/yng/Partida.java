@@ -31,13 +31,14 @@ public class Partida {
         "procedimiento", "trasladar", "ocupacional", "geolocalizacion", "trasnochador"
     };
 
+    public Partida(){};
     public Partida(Jugador p1, Jugador p2) {
 
         jugadores = new HashMap<Jugador, Jugador>();
         jugadores.put(p1, p2);
         puntosTotales = 0;
         fallos = 0;
-        historialLetras = new ArrayList<>();
+        historialLetras = new ArrayList<String>();
     }
 
     public Partida(Jugador p1, Integer dificultad) {
@@ -96,9 +97,17 @@ public class Partida {
         return fallos;
     }
 
+    public void setFallos(Integer fallos) {
+        this.fallos = fallos;
+    }
+    
+    
+    
+    
+
     public void SumarFallo() {
 
-        fallos++;
+        fallos += 1;
 
     }
 
@@ -108,8 +117,22 @@ public class Partida {
 
     }
 
-    public ArrayList<String> getHistorialLetras() {
-        return historialLetras;
+    public String getHistorialLetras() {
+        String letrasStr = "";
+      
+            for (String Letra : historialLetras) {
+                letrasStr += Letra;
+            }
+        String historialStr = "";
+        
+        if(letrasStr.length()>0){
+            for (int i = 0; i < letrasStr.length(); i++) {
+                historialStr += letrasStr.charAt(i) + ",";
+            }
+        }
+        
+        
+        return historialStr;
     }
 
     public void addLetra(String letra) {
@@ -121,6 +144,8 @@ public class Partida {
     public String getPalabraAdivinar() {
         return palabraAdivinar;
     }
+    
+    
 
     public String palabraGuiones() {
 
@@ -161,5 +186,4 @@ public class Partida {
         return respuesta;
 
     }
-
 }
