@@ -47,7 +47,7 @@ class Menu {
                     v.reiniciar();
                     ganar = false;
                     p.setFallos(0);
-                    System.out.println("Cual es tu nombre?");
+                    System.out.println("Cuál es tu nombre?");
                     String nombre = sc.nextLine();
                     j1 = new Jugador(nombre);
                     System.out.println("Selecciona tu dificultad: 1, 2 o 3");
@@ -58,7 +58,6 @@ class Menu {
 
                     while (p.getFallos() < 6 && !ganar) {
                         limpiar();
-                        System.out.println(p.getPalabraAdivinar());
                         if (!p.getPalabraAdivinar().equals(p.palabraGuiones())) {
 
                             if (p.getFallos() == 0) {
@@ -165,9 +164,9 @@ class Menu {
                     System.out.println("El jugador 2 indicara la palabra y "
                             + "el jugador 1 tratara de adivinarla."
                             + "\nEste modo equivale a la dificultad 3");
-                    System.out.println("Cual es el nombre del jugador 1?");
+                    System.out.println("Cuál es el nombre del jugador 1?");
                     String j1str = sc.nextLine();
-                    System.out.println("Cual es el nombre del jugador 2?");
+                    System.out.println("Cuál es el nombre del jugador 2?");
                     String j2str = sc.nextLine();
                     j1 = new Jugador(j1str);
                     j2 = new Jugador(j2str);
@@ -179,7 +178,7 @@ class Menu {
                     p.elegirPalabra(palabra);
                     while (p.getFallos() < 6 && !ganar) {
                         limpiar();
-                        System.out.println(p.getPalabraAdivinar());
+
                         if (!p.getPalabraAdivinar().equals(p.palabraGuiones())) {
 
                             if (p.getFallos() == 0) {
