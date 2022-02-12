@@ -12,7 +12,7 @@ import java.util.TreeSet;
  *
  * @author yared
  */
-public class Historial implements Comparator<Partida> {
+public class Historial{
 
     HashSet<Partida> historial;
 
@@ -68,7 +68,5 @@ class Ranking{
         
     }
 
-
-    
 }
 
