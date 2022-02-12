@@ -12,6 +12,8 @@ public class Jugador {
     
     private String nombre;
     
+    public Jugador(){};
+    
     public Jugador(String nombre){
         
         this.nombre = nombre;
@@ -30,7 +32,6 @@ public class Jugador {
     public String toString() {
         return nombre;
     }
-    
     
     
     
