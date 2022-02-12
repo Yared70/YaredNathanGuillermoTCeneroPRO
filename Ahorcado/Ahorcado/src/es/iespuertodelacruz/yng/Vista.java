@@ -11,9 +11,9 @@ package es.iespuertodelacruz.yng;
 public class Vista {
 
     String ahorcado[][];
-    
+
     public Vista() {
-        
+
         ahorcado = new String[15][20];
         for (int i = 0; i < ahorcado.length; i++) {
             for (int j = 0; j < ahorcado[0].length; j++) {
@@ -21,12 +21,36 @@ public class Vista {
             }
         }
     }
- 
-    
-    public void fallos0(){
-        
-         //base
-        
+
+    public String Ganar() {
+
+        String respuesta = (" _   _               _____                           _         _ \n"
+                + "| | | |             |  __ \\                         | |       | |\n"
+                + "| |_| |  __ _  ___  | |  \\/  __ _  _ __    __ _   __| |  ___  | |\n"
+                + "|  _  | / _` |/ __| | | __  / _` || '_ \\  / _` | / _` | / _ \\ | |\n"
+                + "| | | || (_| |\\__ \\ | |_\\ \\| (_| || | | || (_| || (_| || (_) ||_|\n"
+                + "\\_| |_/ \\__,_||___/  \\____/ \\__,_||_| |_| \\__,_| \\__,_| \\___/ (_)");
+        return respuesta;
+    }
+
+    public String Perder() {
+
+        String respuesta = (" _   _                                _ _     _            \n"
+                + "| | | |                              | (_)   | |           \n"
+                + "| |_| | __ _ ___   _ __   ___ _ __ __| |_  __| | ___       \n"
+                + "|  _  |/ _` / __| | '_ \\ / _ | '__/ _` | |/ _` |/ _ \\      \n"
+                + "| | | | (_| \\__ \\ | |_) |  __| | | (_| | | (_| | (_) _ _ _ \n"
+                + "\\_| |_/\\__,_|___/ | .__/ \\___|_|  \\__,_|_|\\__,_|\\___(_(_(_)\n"
+                + "                  | |                                      \n"
+                + "                  |_|                                      ");
+
+        return respuesta;
+
+    }
+
+    public void fallos0() {
+
+        //base
         ahorcado[14][0] = "|";
         ahorcado[14][1] = "_";
         ahorcado[14][2] = "_";
@@ -43,7 +67,7 @@ public class Vista {
         ahorcado[13][5] = "_";
         ahorcado[13][6] = "_";
         ahorcado[13][7] = "_";
-        
+
         //palo
         ahorcado[12][3] = "|";
         ahorcado[12][4] = "|";
@@ -72,14 +96,14 @@ public class Vista {
         ahorcado[0][3] = "_";
         ahorcado[0][4] = "_";
         ahorcado[0][5] = "_";
-        
+
         ahorcado[0][6] = "_";
         ahorcado[0][7] = "_";
         ahorcado[0][8] = "_";
         ahorcado[0][9] = "_";
         ahorcado[0][10] = "_";
         ahorcado[0][11] = "_";
-        
+
         ahorcado[1][5] = "_";
         ahorcado[1][6] = "_";
         ahorcado[1][7] = "_";
@@ -89,14 +113,12 @@ public class Vista {
         ahorcado[1][11] = "_";
         ahorcado[1][12] = "|";
         ahorcado[2][11] = "|";
-        
-        
+
     }
-    
-    public void fallos1(){
-        
+
+    public void fallos1() {
+
         //cabeza
-        
         ahorcado[2][10] = "_";
         ahorcado[2][12] = "_";
         ahorcado[3][9] = "/";
@@ -107,71 +129,63 @@ public class Vista {
         ahorcado[5][13] = "/";
         ahorcado[5][10] = "_";
         ahorcado[5][12] = "_";
-        
+
     }
-    
-    public void fallos2(){
-        
+
+    public void fallos2() {
+
         //tronco
-        
         ahorcado[6][11] = "|";
         ahorcado[7][11] = "|";
         ahorcado[8][11] = "|";
         ahorcado[9][11] = "|";
-        
+
     }
-    
-    public void fallos3(){
-        
-         //brazo izquierdo
+
+    public void fallos3() {
+
+        //brazo izquierdo
         ahorcado[6][10] = "/";
         ahorcado[7][9] = "/";
-        
-        
+
     }
-    
-    public void fallos4(){
-        
-         //brazo derecho
+
+    public void fallos4() {
+
+        //brazo derecho
         ahorcado[6][12] = "\\";
         ahorcado[7][13] = "\\";
-        
+
     }
-    
-    public void fallos5(){
-        
-         
+
+    public void fallos5() {
+
         //pierna izquierda
         ahorcado[10][10] = "/";
         ahorcado[11][9] = "/";
-        
+
     }
-    
-    public void fallos6(){
-        
-         
+
+    public void fallos6() {
+
         //pierda derecha
         ahorcado[10][12] = "\\";
         ahorcado[11][13] = "\\";
-        ahorcado[8][16] = "Has perdido!";
-        
+
     }
-    
-    public void mostrar(){
-        
+
+    public void mostrar() {
+
         System.out.println("\n\n\n\n\n\n\n\n");
-         for (int i = 0; i < ahorcado.length; i++) {
+        for (int i = 0; i < ahorcado.length; i++) {
             for (int j = 0; j < ahorcado[0].length; j++) {
                 System.out.print(ahorcado[i][j]);
-            
+
             }
             System.out.println("");
         }
-         System.out.println("\n\n");
-        
+        System.out.println("\n\n");
+
     }
-    
-    
-    
-}  
-    
+
+}
