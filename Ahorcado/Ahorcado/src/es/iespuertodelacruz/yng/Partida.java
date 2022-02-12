@@ -62,30 +62,45 @@ public class Partida {
 
     }
 
-    public Integer calcularPuntos(Integer fallos) {
+    public void calcularPuntos() {
 
         Integer resultado = 0;
 
-        if (fallos == 6) {
-            return resultado;
-        } else if (dificultad == 1) {
-            resultado = 120 - (20 * fallos);
-            return resultado;
-        } else if (dificultad == 2) {
-            resultado = 120 - (15 * fallos);
-            return resultado;
+        if (jugadores.containsValue(null)) {
+            if (fallos == 6) {
+                resultado = 0;
+            } else if (dificultad == 1) {
+                resultado = 120 - (20 * fallos);
+            } else if (dificultad == 2) {
+                resultado = 120 - (15 * fallos);
+            } else {
+                resultado = 120 - (10 * fallos);
+            }
         } else {
-            resultado = 120 - (10 * fallos);
-            return resultado;
+            if (fallos == 6) {
+                resultado = 0;
+            } else {
+                resultado = 120 - (10 * fallos);
+            }
         }
+
+        puntosTotales = resultado;
 
     }
 
     public Integer getPuntosTotales() {
         return puntosTotales;
     }
-    
-    
+
+    public Integer getFallos() {
+        return fallos;
+    }
+
+    public void SumarFallo() {
+
+        fallos++;
+
+    }
 
     public void elegirPalabra(String palabra) {
 
@@ -120,24 +135,31 @@ public class Partida {
         return palabraconguiones;
 
     }
-    
-    @Override
-    public String toString(){
-        
-        String respuesta = "";
-        
-        if(jugadores.values() == null){
-            respuesta += "Jugador: " + jugadores.keySet() + "\tDificultad: " +
-                    dificultad + "\tPalabra a adivinar: " + palabraAdivinar + 
-                    "\tFallos: " + fallos + "\tPuntos totales: " + puntosTotales;
-        
-        }else{
-            respuesta += "Jugador1: " + jugadores.keySet() + "Jugador2: " + jugadores.values() +
-                    "\tDificultad: " + dificultad + "\tPalabra a adivinar: " + palabraAdivinar + 
-                    "\tFallos: " + fallos + "\tPuntos totales: " + puntosTotales;
 
+    @Override
+    public String toString() {
+
+        String respuesta = "";
+
+        if (jugadores.containsValue(null)) {
+            for (Jugador key : jugadores.keySet()) {
+                respuesta += "Jugador: " + key + "\tDificultad: "
+                        + dificultad + "\tPalabra a adivinar: " + palabraAdivinar
+                        + "\tFallos: " + fallos + "\tPuntos totales: " + puntosTotales;
+            }
+        } else {
+            for (Jugador key : jugadores.keySet()) {
+                for (Jugador value : jugadores.values()) {
+                    respuesta += "Jugador1: " + key + "\tJugador2: " + value
+                            + "\tPalabra a adivinar: " + palabraAdivinar
+                            + "\tFallos: " + fallos + "\tPuntos totales: " + puntosTotales;
+
+                }
+
+            }
         }
         return respuesta;
+
     }
 
 }
