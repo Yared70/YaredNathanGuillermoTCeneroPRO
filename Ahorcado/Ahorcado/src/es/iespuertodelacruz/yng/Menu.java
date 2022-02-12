@@ -135,6 +135,7 @@ class Menu {
                                 }
                             }
                         } else if (p.getPalabraAdivinar().equals(p.palabraGuiones())) {
+                            limpiar();
                             System.out.println(v.Ganar());
                             ganar = true;
                             p.calcularPuntos();
@@ -147,6 +148,7 @@ class Menu {
                     }
 
                     if (p.getFallos() == 6) {
+                        limpiar();
                         v.fallos6();
                         v.mostrar();
                         System.out.println(v.Perder());
@@ -256,6 +258,7 @@ class Menu {
                                 }
                             }
                         } else if (p.getPalabraAdivinar().equals(p.palabraGuiones())) {
+                            limpiar();
                             System.out.println(v.Ganar());
                             System.out.println("\n");
                             ganar = true;
@@ -269,6 +272,7 @@ class Menu {
                     }
 
                     if (p.getFallos() == 6) {
+                        limpiar();
                         v.fallos6();
                         v.mostrar();
                         System.out.println(v.Perder());
@@ -281,6 +285,7 @@ class Menu {
                     break;
 
                 case 3:
+                    limpiar();
                     System.out.println("  _   _   _         _                    _           _ \n"
                             + " | | | | (_)  ___  | |_    ___    _ __  (_)   __ _  | |\n"
                             + " | |_| | | | / __| | __|  / _ \\  | '__| | |  / _` | | |\n"
@@ -293,6 +298,7 @@ class Menu {
                     break;
 
                 case 4:
+                    limpiar();
                     System.out.println("  ____                    _      _                 \n"
                             + " |  _ \\    __ _   _ __   | | __ (_)  _ __     __ _ \n"
                             + " | |_) |  / _` | | '_ \\  | |/ / | | | '_ \\   / _` |\n"
@@ -305,6 +311,7 @@ class Menu {
                     break;
 
                 case 5:
+                    limpiar();
                     System.out.println("               ,.,   '          ;'*¨'`·- .,  ‘                  ,.-·.            , ·. ,.-·~·.,   ‘                 ,. -,    \n"
                             + "              ;´   '· .,         \\`:·-,. ,   '` ·.  '           /    ;'\\'         /  ·'´,.-·-.,   `,'‚           ,.·'´,    ,'\\   \n"
                             + "            .´  .-,    ';\\        '\\:/   ;\\:'`:·,  '`·, '       ;    ;:::\\       /  .'´\\:::::::'\\   '\\ °     ,·'´ .·´'´-·'´::::\\' \n"
