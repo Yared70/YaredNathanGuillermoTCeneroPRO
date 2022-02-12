@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package jugar;
+package es.iespuertodelacruz.yng;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,17 +19,16 @@ public class Partida {
     private Integer puntosTotales;
     private Integer fallos;
     private Integer dificultad;
-    private final Date fecha;
     private ArrayList<String> historialLetras;
     private String palabraAdivinar;
     
-    String palDif1[] = {"angel", "ojo", "pizza", "enojado", "fuegos artificiales",
-    "calabaza", "flor", "arco iris", "barba"};
+    String palDif1[] = {"angel", "ojo", "pizza", "enojado", "artificiales",
+    "calabaza", "flor", "arco", "barba"};
     String palDif2[] = {"cerebro", "hebilla", "langosta", "iman", "megafono",
-    "bola de nieve", "aspersor", "computadora", "estatua de la libertad"    
+    "saxofonista", "aspersor", "computadora", "libertad"    
     };
     String palDif3[] = {"adaptacion", "evaluacion", "diagnostico", "circulacion",
-    "procedimiento", "trasladar", "ocupacional", "geolocalizacion", "aprobar programacion"
+    "procedimiento", "trasladar", "ocupacional", "geolocalizacion", "trasnochador"
     };
 
     
@@ -41,7 +40,6 @@ public class Partida {
         puntosTotales = 0;
         fallos = 0;
         historialLetras = new ArrayList<>();
-        fecha = new Date();
     }
     
     public Partida(Jugador p1, Integer dificultad){
@@ -52,7 +50,6 @@ public class Partida {
         this.dificultad = dificultad;
         puntosTotales = 0;
         fallos = 0;
-        fecha = new Date();
         historialLetras = new ArrayList<>();
         if(dificultad == 1){
             int aleatorio = rnd.nextInt(palDif1.length);
@@ -98,7 +95,7 @@ public class Partida {
         return historialLetras;
     }
     
-    public void addLetraFallada(String letra){
+    public void addLetra(String letra){
         
         historialLetras.add(letra);
         
@@ -107,10 +104,20 @@ public class Partida {
     public String getPalabraAdivinar() {
         return palabraAdivinar;
     }
+    
+    public String palabraGuiones(){
+        
+    String palabra = this.palabraAdivinar;
+    String letraselegidas = "";
+        for (int i = 0; i < historialLetras.size(); i++) {
+            letraselegidas += historialLetras.get(i);
+        }
 
-    public Date getFecha() {
-        return fecha;
-    }
+    String palabraconguiones = palabra.replaceAll("[^ "+letraselegidas+"]", "_ ");
+    
+    return palabraconguiones;
+    
+  }
 
     
     
