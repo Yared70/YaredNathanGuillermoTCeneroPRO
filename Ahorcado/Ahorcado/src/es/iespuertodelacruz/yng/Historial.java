@@ -15,20 +15,59 @@ import java.util.TreeSet;
 public class Historial implements Comparator<Partida> {
 
     HashSet<Partida> historial;
-    TreeSet<Partida> ranking;
 
-    public Historial(HashSet<Partida> historial) {
-        this.historial = historial;
+    public Historial() {
+        this.historial = new HashSet<>();
     }
 
-    public Historial(TreeSet<Partida> ranking) {
-        this.ranking = ranking;
+    public void addPartida(Partida p){
+        
+        historial.add(p);
+        
     }
+    public void mostrarHistorial(){
+        
+        for (Partida partida : historial) {
+            System.out.println(partida);
+        }
+        
+    }
+
+}
+
+class ComparadorPuntos implements Comparator<Partida>{
 
     @Override
-    public int compare(Partida o1, Partida o2) {
-        return Integer.compare(o1.getPuntosTotales(), o2.getPuntosTotales());
+    public int compare(Partida p1, Partida p2) {
+        return Integer.compare(p2.getPuntosTotales(), p1.getPuntosTotales());
     }
+    
+    
+    
+}
+
+class Ranking{
+    
+    TreeSet<Partida> ranking;
+    
+    public Ranking(Comparator c){
+        
+        ranking = new TreeSet<Partida>(c);
+        
+    }
+    
+    public void mostrarRanking(){
+        for (Partida partida : ranking) {
+            System.out.println(partida);
+        }
+    }
+    
+    public void addPartida(Partida p){
+        
+        ranking.add(p);
+        
+    }
+
 
     
 }
