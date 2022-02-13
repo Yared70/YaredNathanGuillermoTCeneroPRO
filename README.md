@@ -20,7 +20,7 @@ Existe la opción de mostrar un historial de todas las partidas y a su vez, otra
 La clase principal desde donde se ejecuta el juego y donde se encuentra el main es en la clase **Menu**.
 
 
-Se **recomienda** no probar el juego desde el Netbeans, en su lugar es preferible usar el clean & build y ejecutar el juego desde una terminal, ya que se han usado instrucciones para limpiar la terminal durante el juego para facilitar la visualización, y estas no funcionan en Netbeans
+Se **recomienda** no probar el juego desde el Netbeans, en su lugar es preferible usar el clean & build y ejecutar el juego desde una terminal, ya que se han usado instrucciones para limpiar la terminal durante el juego para facilitar la visualización, las cuales por algun motivo desconocido no funcionan en Netbeans.
 
 
 ## Bitácora
@@ -29,8 +29,9 @@ Se **recomienda** no probar el juego desde el Netbeans, en su lugar es preferibl
 
 Se ha creado un menú con la posibilidad de crear varios proyectos y anotaciones. A su vez, al crear una anotación se deberá indicar a cuál proyecto se le quiere añadir la anotación.
 
-Los proyecto dentro de la Bitácora, y a su vez, las anotaciones de cada proyecto, estan ordenados por fecha de creación.
+Los proyectos dentro de la Bitácora, y a su vez, las anotaciones de cada proyecto, están ordenados por fecha de creación.
 
 Existe la opción de eliminar proyectos enteros o anotaciones de algun proyecto, así como mostrar la Bitácora en su totalidad, algún proyecto concreto con sus anotaciones o una anotación en específico.
+
 
 <img src="img/4.png" width="500" height="150" />
