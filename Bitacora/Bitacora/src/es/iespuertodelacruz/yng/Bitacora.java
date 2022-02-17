@@ -13,36 +13,59 @@ import java.util.*;
  */
 class Bitacora {
 
-    TreeSet<Proyecto> projects;
+    TreeSet<Proyecto> proyectosPorFecha;
+    TreeMap<String, Proyecto> Proyectos;
     String nombre;
 
     public Bitacora(String nombre) {
 
         this.nombre = nombre;
-        projects = new TreeSet<Proyecto>(new OrdenarFechasProyectos());
+        proyectosPorFecha = new TreeSet<Proyecto>(new OrdenarFechasProyectos());
+        Proyectos = new TreeMap<String, Proyecto>();
 
     }
-    public Bitacora(){}
 
-    public TreeSet<Proyecto> getProjects() {
-        return projects;
+    public Bitacora() {
+    }
+
+    public TreeMap<String, Proyecto> getProyectos() {
+        return Proyectos;
+    }
+
+    public TreeSet<Proyecto> getProjectsOrFecha() {
+
+        proyectosPorFecha.addAll(Proyectos.values());
+        return proyectosPorFecha;
     }
 
     public String getNombre() {
         return nombre;
     }
-    
-    
+
+    public Proyecto getProyecto(String nombre) {
+
+        Proyecto p = new Proyecto();
+        p = Proyectos.get(nombre);
+        return p;
+
+    }
+
+    public void remove(Proyecto proyecto) {
+
+        Proyectos.remove(proyecto.getNombre());
+
+    }
 
     public void add(Proyecto proyecto) {
 
-        this.projects.add(proyecto);
+        this.Proyectos.put(proyecto.getNombre(), proyecto);
 
     }
 
     public void mostrar() {
 
-        for (Proyecto project : projects) {
+        proyectosPorFecha.addAll(Proyectos.values());
+        for (Proyecto project : proyectosPorFecha) {
             System.out.println(project);
             System.out.println("\n");
         }

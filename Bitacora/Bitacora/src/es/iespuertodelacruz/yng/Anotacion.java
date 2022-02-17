@@ -24,21 +24,23 @@ class Anotacion {
         this.cuerpo = cuerpo;
         fecha = new Date();
     }
-    
-    public Anotacion(){};
+
+    public Anotacion() {
+    }
+
+    ;
     
     
 
     @Override
     public String toString() {
 
-        return "\nCabecera: " + cabecera +  "\tFecha: " + fecha + 
-                "\nCuerpo: " + cuerpo + "\n";
+        return "\nNombre: " + nombre
+                + "\nCabecera: " + cabecera + "\tFecha: " + fecha
+                + "\nCuerpo: " + cuerpo + "\n";
 
     }
-    
-    
-    
+
     public String getCabecera() {
         return cabecera;
     }

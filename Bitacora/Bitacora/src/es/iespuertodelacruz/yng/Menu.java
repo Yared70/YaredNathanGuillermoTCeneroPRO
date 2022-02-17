@@ -4,8 +4,9 @@
  */
 package es.iespuertodelacruz.yng;
 
-import java.util.HashSet;
 import java.util.Scanner;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  *
@@ -18,6 +19,8 @@ public class Menu {
         Scanner sc = new Scanner(System.in);
         System.out.println("Bienvenido:\n");
         int opcion = 0;
+        TreeMap<String, Proyecto> bitacoraMap;
+        TreeMap<String, Anotacion> proyectoMap;
         String nombre;
         String cabecera;
         String descripcion;
@@ -30,7 +33,7 @@ public class Menu {
 
         while (opcion != 9) {
 
-            System.out.println("\n------ Menú ------");
+            System.out.println("\n------ Menú ------\n");
             System.out.println("1) Crear Bitácora");
             System.out.println("2) Crear Proyecto");
             System.out.println("3) Crear Anotación");
@@ -39,7 +42,7 @@ public class Menu {
             System.out.println("6) Mostrar Bitácora");
             System.out.println("7) Mostrar Proyecto");
             System.out.println("8) Mostrar Anotación");
-            System.out.println("9) Salir");
+            System.out.println("9) Salir\n");
             opcion = sc.nextInt();
             sc.nextLine();
 
@@ -56,12 +59,18 @@ public class Menu {
                     System.out.println("Introduce la descripcion del Proyecto");
                     descripcion = sc.nextLine();
                     p = new Proyecto(nombre, descripcion);
-                    try {
-                        b.add(p);
-                    } catch (Exception e) {
-                        System.out.println("ERROR: Necesitas crear una bitácora primero\n");
+
+                    if (b == null) {
+                        System.out.println("\nERROR: Necesitas crear una bitácora primero\n");
+                    } else {
+                        bitacoraMap = b.getProyectos();
+                        if (bitacoraMap.containsKey(nombre)) {
+                            System.out.println("\nERROR: Ya existe el proyecto");
+                        } else {
+                            b.add(p);
+                        }
                     }
-                    
+
                     break;
                 case 3:
                     System.out.println("\nIntroduce el nombre de la Anotación");
@@ -74,26 +83,29 @@ public class Menu {
                     System.out.println("Introduce el nombre del proyecto al que "
                             + "quieres añadir la anotacion");
                     proyecto = sc.nextLine();
-                    for (Proyecto project : b.getProjects()) {
-                                if (project.getNombre().equals(proyecto)) {
-                                    project.addAnotaciones(a);
-                                    break;
-                                } else {
-                                    System.out.println("No existe ese proyecto");
-                                    break;
-                                }
-                            }
-                    
-                    
+
+                    bitacoraMap = b.getProyectos();
+                    if (bitacoraMap.containsKey(proyecto)) {
+                        p = bitacoraMap.get(proyecto);
+                        proyectoMap = p.getAnotaciones();
+                        if (proyectoMap.containsKey(nombre)) {
+                            System.out.println("\nERROR: Ya existe esa anotación");
+                        } else {
+                            p.addAnotaciones(a);
+                        }
+                    } else {
+                        System.out.println("\nERROR: No existe el proyecto");
+                    }
                     break;
                 case 4:
                     System.out.println("Introduce el nombre del proyecto a eliminar:");
                     proyecto = sc.nextLine();
-                    for (Proyecto project : b.getProjects()) {
-                        if(project.getNombre().equals(proyecto)){
-                            b.getProjects().remove(project);
-                            break;
-                        }
+                    bitacoraMap = b.getProyectos();
+
+                    if (bitacoraMap.containsKey(proyecto)) {
+                        b.remove(bitacoraMap.get(proyecto));
+                    } else {
+                        System.out.println("\nERROR: No existe el proyecto");
                     }
                     break;
 
@@ -102,21 +114,18 @@ public class Menu {
                     anotacion = sc.nextLine();
                     System.out.println("Introduce el proyecto del cuál quieres eliminar la anotacion");
                     proyecto = sc.nextLine();
-                    for (Proyecto project : b.getProjects()) {
-                        if(project.getNombre().equals(proyecto)){
-                            for (Anotacion anotacion1 : project.getAnotaciones()) {
-                                if(anotacion1.getNombre().equals(anotacion)){
-                                    project.getAnotaciones().remove(anotacion1);
-                                    break;
-                                }else{
-                                    System.out.println("No existe esa anotación");
-                                    break;
-                                }
-                            }
-                        }else{
-                            System.out.println("No existe ese proyecto");
-                            break;
+                    proyectoMap = p.getAnotaciones();
+                    bitacoraMap = b.getProyectos();
+                    if (bitacoraMap.containsKey(proyecto)) {
+                        p = bitacoraMap.get(proyecto);
+                        if (proyectoMap.containsKey(anotacion)) {
+                            a = proyectoMap.get(anotacion);
+                            p.removeAnotaciones(a);
+                        } else {
+                            System.out.println("No existe esa anotación en ese proyecto");
                         }
+                    } else {
+                        System.out.println("\nERROR: No existe ese proyecto");
                     }
                     break;
 
@@ -126,14 +135,12 @@ public class Menu {
                 case 7:
                     System.out.println("Introduce el proyecto que quieres ver:");
                     proyecto = sc.nextLine();
-                    for (Proyecto project : b.getProjects()) {
-                        if(project.getNombre().equals(proyecto)){
-                            System.out.println("\n" + project.toString());
-                            break;
-                        }else{
-                            System.out.println("No existe el proyecto");
-                            break;
-                        }
+                    bitacoraMap = b.getProyectos();
+                    if (bitacoraMap.containsKey(proyecto)) {
+                        p = bitacoraMap.get(proyecto);
+                        System.out.println(p.toString());
+                    } else {
+                        System.out.println("\nERROR: No existe ese proyecto");
                     }
                     break;
                 case 8:
@@ -141,27 +148,24 @@ public class Menu {
                     anotacion = sc.nextLine();
                     System.out.println("Introduce el proyecto del cuál quieres ver la anotacion");
                     proyecto = sc.nextLine();
-                    for (Proyecto project : b.getProjects()) {
-                        if(project.getNombre().equals(proyecto)){
-                            for (Anotacion anotacion1 : project.getAnotaciones()) {
-                                if(anotacion1.getNombre().equals(anotacion)){
-                                    System.out.println("\n" + anotacion1.toString());
-                                    break;
-                                }else{
-                                    System.out.println("No existe esa anotación");
-                                    break;
-                                }
-                            }
-                        }else{
-                            System.out.println("No existe ese proyecto");
-                            break;
+
+                    proyectoMap = p.getAnotaciones();
+                    bitacoraMap = b.getProyectos();
+                    if (bitacoraMap.containsKey(proyecto)) {
+                        if (proyectoMap.containsKey(anotacion)) {
+                            a = proyectoMap.get(anotacion);
+                            System.out.println(a.toString());
+                        } else {
+                            System.out.println("No existe esa anotación en ese proyecto");
                         }
+                    } else {
+                        System.out.println("\nERROR: No existe ese proyecto");
                     }
+
                     break;
                 case 9:
-                    System.out.println("Adios");
+                    System.out.println("\nAdios");
                     break;
-                    
 
             }
 
